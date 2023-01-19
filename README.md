@@ -2,11 +2,7 @@
 
 **A tiny JSON logger, optimised for speed and simplicity**
 
-[![Travis Status](https://api.travis-ci.com/rvagg/bole.svg?branch=master)](https://travis-ci.com/rvagg/bole)
-
-[![NPM](https://nodei.co/npm/bole.svg)](https://nodei.co/npm/bole/)
-
-Log JSON from within Node.js applications. The log format is obviously inspired by the excellent [Bunyan](https://github.com/trentm/node-bunyan) and is likely to be output-compatible in most cases. The difference is that **bole** aims for even more simplicity, supporting only the common-case basics.
+Log JSON from within Deno applications. The log format is obviously inspired by the excellent [Bunyan](https://github.com/trentm/node-bunyan) and is likely to be output-compatible in most cases. The difference is that **bole** aims for even more simplicity, supporting only the common-case basics.
 
 **bole** is designed for **global singleton use**. Your application has many log sources, but they all aggregate to the same sources. You configure output in *one place* for an application, regardless of how many modules and dependencies are also using **bole** for logging.
 
@@ -14,7 +10,7 @@ Log JSON from within Node.js applications. The log format is obviously inspired 
 
 **mymodule.js**
 ```js
-import bole from "../bole.js";
+import bole from "https://code4fukui.github.io/bole/bole.js";
 
 const log = bole('mymodule')
 
@@ -26,7 +22,7 @@ export const derp = () => {
 
 **main.js**
 ```js
-import bole from "../bole.js";
+import bole from "https://code4fukui.github.io/bole/bole.js";
 import mod from "./mymodule.js";
 
 bole.output({
