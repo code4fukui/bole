@@ -1,10 +1,13 @@
-'use strict'
+import _stringify from "https://code4fukui.github.io/fast-safe-stringify/index.js";
+import { Individual } from "https://code4fukui.github.io/individual/index.js";
+const individual = Individual('$$bole', { fastTime: false });
 
-const _stringify = require('fast-safe-stringify')
-const individual = require('individual')('$$bole', { fastTime: false }) // singleton
-const format = require('./format')
+import { format } from "./format.js";
 const levels = 'debug info warn error'.split(' ')
-const os = require('os')
+import * as os from './os.js';
+import * as process from "./process.js";
+import { Buffer } from "./Buffer.js";
+
 const pid = process.pid
 let hasObjMode = false
 const scache = []
@@ -233,4 +236,4 @@ bole.setFastTime = function setFastTime (b) {
   return bole
 }
 
-module.exports = bole
+export default bole;

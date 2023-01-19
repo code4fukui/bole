@@ -1,8 +1,7 @@
 // consider this a warning about getting obsessive about optimization
+import { format as utilformat } from "https://deno.land/std@0.110.0/node/util.ts";
 
-const utilformat = require('util').format
-
-function format (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16) {
+export function format (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16) {
   if (a16 !== undefined) {
     return utilformat(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
   }
@@ -50,5 +49,3 @@ function format (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a1
   }
   return a1
 }
-
-module.exports = format

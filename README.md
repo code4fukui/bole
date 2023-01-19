@@ -14,29 +14,31 @@ Log JSON from within Node.js applications. The log format is obviously inspired 
 
 **mymodule.js**
 ```js
-const log = require('bole')('mymodule')
+import bole from "../bole.js";
 
-module.exports.derp = () => {
+const log = bole('mymodule')
+
+export const derp = () => {
   log.debug('W00t!')
   log.info('Starting mymodule#derp()')
-}
+};
 ```
 
 **main.js**
 ```js
-const bole = require('bole')
-const mod  = require('./mymodule')
+import bole from "../bole.js";
+import mod from "./mymodule.js";
 
 bole.output({
   level: 'info',
-  stream: process.stdout
+  stream: Deno.stdout
 })
 
 mod.derp()
 ```
 
 ```text
-$ node main
+$ deno run main.js
 {"time":"2014-05-18T23:47:06.545Z","hostname":"tweedy","pid":27374,"level":"info","name":"mymodule","message":"Starting mymodule#derp()"}
 ```
 
